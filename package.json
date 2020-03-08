@@ -19,9 +19,7 @@
     "@opam/wtf8": "*",
     "@opam/dune": "*",
     "@opam/ppx_deriving": "*",
-    "@opam/ppx_gen_rec": "*",
-    "@opam/ocaml-migrate-parsetree": "*",
-    "@opam/ppx_tools_versioned": "5.2"
+    "@opam/ppx_gen_rec": "*"
   },
   "peerDependencies": {
     "ocaml": ">= 4.7.0"

@@ -1,4 +1,4 @@
-# Copyright (c) 2013-present, Facebook, Inc.
+# Copyright (c) Facebook, Inc. and its affiliates.
 #
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
@@ -10,23 +10,25 @@ REL_DIR=src/parser
 OCB = ocamlbuild -use-ocamlfind
 
 NATIVE_OBJECT_FILES=\
-	hack/utils/sys/files.o\
-	hack/utils/sys/getrusage.o\
-	hack/utils/sys/nproc.o\
-	hack/utils/sys/realpath.o\
-	hack/utils/sys/sysinfo.o\
-	hack/utils/sys/processor_info.o\
-	hack/utils/sys/priorities.o
+	src/hack_forked/utils/sys/files.o\
+	src/hack_forked/utils/sys/gc_profiling.o\
+	src/hack_forked/utils/sys/getrusage.o\
+	src/hack_forked/utils/sys/nproc.o\
+	src/hack_forked/utils/sys/realpath.o\
+	src/hack_forked/utils/sys/sysinfo.o\
+	src/hack_forked/utils/sys/processor_info.o\
+	src/hack_forked/utils/sys/priorities.o
 
 RUNNER_DEPS=\
-	hack/heap\
-	hack/injection/default_injector\
-	hack/utils\
-	hack/utils/collections\
-	hack/utils/disk\
-	hack/utils/hh_json\
-	hack/utils/sys\
-	hack/third-party/core\
+	src/heap\
+	src/hack_forked/injection/default_injector\
+	src/hack_forked/third-party/core\
+	src/hack_forked/utils/collections\
+	src/hack_forked/utils/core\
+	src/hack_forked/utils/disk\
+	src/hack_forked/utils/hh_json\
+	src/hack_forked/utils/string\
+	src/hack_forked/utils/sys\
 	src/common/utils\
 	src/parser\
 	src/parser_utils
@@ -92,38 +94,23 @@ js:
 test-js: js
 	cd $(TOP)/packages/flow-parser; npm test
 
-../../_build/$(REL_DIR)/test/run_esprima_tests.native: build-parser
+../../_build/$(REL_DIR)/test/run_tests.native: build-parser
 	cd $(TOP); \
-	$(OCB) \
+	$(OCB) -no-links \
 		-ocamlc "ocamlopt" \
 		$(NATIVE_OBJECT_FILES); \
-	$(OCB) \
+	$(OCB) -no-links \
 		$(foreach dir,$(RUNNER_DEPS),-I $(dir)) \
-	 	-lib unix -lib str \
 	 	-lflags "$(NATIVE_OBJECT_FILES)" \
-		$(REL_DIR)/test/run_esprima_tests.native; \
-	rm run_esprima_tests.native
+		$(REL_DIR)/test/run_tests.native
 
-../../_build/$(REL_DIR)/test/run_hardcoded_tests.native: build-parser
+test-esprima-ocaml: ../../_build/$(REL_DIR)/test/run_tests.native
 	cd $(TOP); \
-	$(OCB) \
-		-ocamlc "ocamlopt -ccopt -DNO_SQLITE3" \
-		$(NATIVE_OBJECT_FILES); \
-	$(OCB) \
-		$(foreach dir,$(RUNNER_DEPS),-I $(dir)) \
-	 	-lib unix -lib str \
-	 	-lflags "$(NATIVE_OBJECT_FILES)" \
-		-tag debug \
-		$(REL_DIR)/test/run_hardcoded_tests.native; \
-	rm run_hardcoded_tests.native
+	_build/$(REL_DIR)/test/run_tests.native $(REL_DIR)/test/esprima/
 
-test-esprima-ocaml: ../../_build/$(REL_DIR)/test/run_esprima_tests.native
+test-hardcoded-ocaml: ../../_build/$(REL_DIR)/test/run_tests.native
 	cd $(TOP); \
-	_build/$(REL_DIR)/test/run_esprima_tests.native $(REL_DIR)/test/esprima/
-
-test-hardcoded-ocaml: ../../_build/$(REL_DIR)/test/run_esprima_tests.native
-	cd $(TOP); \
-	_build/$(REL_DIR)/test/run_esprima_tests.native $(REL_DIR)/test/flow/
+	_build/$(REL_DIR)/test/run_tests.native $(REL_DIR)/test/flow/
 
 test-ocaml: test-esprima-ocaml test-hardcoded-ocaml
 

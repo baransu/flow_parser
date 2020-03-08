@@ -1,12 +1,27 @@
-B /Users/zindel/.esy/3__________________________________________________________________/i/opam__slash__gen-0.5.1-7d027135/lib/gen
-B /Users/zindel/.esy/3__________________________________________________________________/i/opam__slash__ocamlfind-1.8.0-348fa71d/lib/bytes
-B /Users/zindel/.esy/3__________________________________________________________________/i/opam__slash__sedlex-1.99.4-a0e003a2/lib/sedlex
-B /Users/zindel/.esy/3__________________________________________________________________/i/opam__slash__wtf8-1.0.1-29ae6569/lib/wtf8
-B ../_build/default/lib/.Flow_parser.objs
-S /Users/zindel/.esy/3__________________________________________________________________/i/opam__slash__gen-0.5.1-7d027135/lib/gen
-S /Users/zindel/.esy/3__________________________________________________________________/i/opam__slash__ocamlfind-1.8.0-348fa71d/lib/bytes
-S /Users/zindel/.esy/3__________________________________________________________________/i/opam__slash__sedlex-1.99.4-a0e003a2/lib/sedlex
-S /Users/zindel/.esy/3__________________________________________________________________/i/opam__slash__wtf8-1.0.1-29ae6569/lib/wtf8
+EXCLUDE_QUERY_DIR
+B /Users/baransu/.esy/3_________________________________________________________________/i/ocaml-4.7.1004-e5a2754f/lib/ocaml/compiler-libs
+B /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__gen-opam__c__0.5.2-f1cc1c1c/lib/gen
+B /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__ocaml_migrate_parsetree-opam__c__1.2.0-27688ee9/lib/ocaml-migrate-parsetree
+B /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__ocamlfind-opam__c__1.8.1-e7aab25a/lib/bytes
+B /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__ppx__derivers-opam__c__1.2.1-e25ee589/lib/ppx_derivers
+B /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__ppx__deriving-opam__c__4.4.1-9b4765e2/lib/ppx_deriving/runtime
+B /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__ppx__tools__versioned-opam__c__5.2-9eb69419/lib/ppx_tools_versioned
+B /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__result-opam__c__1.5-91e1c0f8/lib/result
+B /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__sedlex-opam__c__2.1-7d69e3eb/lib/sedlex
+B /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__uchar-opam__c__0.0.2-95b99a6a/lib/uchar
+B /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__wtf8-opam__c__1.0.2-352f7ed7/lib/wtf8
+B ../_build/default/lib/.flow_parser.objs/byte
+S /Users/baransu/.esy/3_________________________________________________________________/i/ocaml-4.7.1004-e5a2754f/lib/ocaml/compiler-libs
+S /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__gen-opam__c__0.5.2-f1cc1c1c/lib/gen
+S /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__ocaml_migrate_parsetree-opam__c__1.2.0-27688ee9/lib/ocaml-migrate-parsetree
+S /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__ocamlfind-opam__c__1.8.1-e7aab25a/lib/bytes
+S /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__ppx__derivers-opam__c__1.2.1-e25ee589/lib/ppx_derivers
+S /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__ppx__deriving-opam__c__4.4.1-9b4765e2/lib/ppx_deriving/runtime
+S /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__ppx__tools__versioned-opam__c__5.2-9eb69419/lib/ppx_tools_versioned
+S /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__result-opam__c__1.5-91e1c0f8/lib/result
+S /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__sedlex-opam__c__2.1-7d69e3eb/lib/sedlex
+S /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__uchar-opam__c__0.0.2-95b99a6a/lib/uchar
+S /Users/baransu/.esy/3_________________________________________________________________/i/opam__s__wtf8-opam__c__1.0.2-352f7ed7/lib/wtf8
 S .
-FLG -ppx '/Users/zindel/ocaml/flow_parser/_build/default/.ppx/sedlex.ppx/ppx.exe --as-ppx --cookie '\''library-name="Flow_parser"'\'''
-FLG -open Flow_parser -w -40 -w -39
+FLG -ppx '/Users/baransu/Documents/Reason/flow_parser/_build/default/.ppx/be48c90307a99d7a582c7fc983be9816/ppx.exe --as-ppx --cookie '\''library-name="flow_parser"'\'''
+FLG -open Flow_parser -w -40
